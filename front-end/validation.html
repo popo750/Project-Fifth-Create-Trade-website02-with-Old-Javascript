@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Le formulaire de confirmation d'achats de votre panier ">
+    <!-- Boostrap CDN -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+
+    <!-- Bootstrap chemin Dossier css -->
+    <link rel="stylesheet" href="assets/css/bootstrap-4.6.0/dist/css/bootstrap.css">
+    <!-- Fontawesome chemin dossier -->
+    <link rel="stylesheet" href="assets/css/fontawesome-free-5.13.0-web/css/all.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Page de confirmation de la commande</title>
+</head>
+
+<body>
+
+    <!-- bloc-0 -->
+    <header class="flex" role="banner" aria-label="header">
+
+        <nav class="navbar navbar-expand-xl navbar-dark col-11" role="navigation" aria-label="main navigation">
+            <!-- En mettant la div couvrant la balise " a " ET " button burger "
+                    cela ne fait pas déplacer l(icone burger TOUT à droite de la barre de navigation -->
+            <a class="navbar-brand" href="index.html" aria-label="Retour à la page Accueil">
+                <img src="logo-orinoco.png" alt="logo officiel de l'entreprise orinoco" width="214" height="40" />
+            </a>
+            <!-- Pour l'effet show / hide avec l'event "click",
+                    sur l'icone burger avec  Bootstrap-4.6.0,
+                    OBLIGER UTILISER le fichier jquery AVEC le fichier "bootstrap-4.6.0.js"
+                    CAR dans le fichier "bootstrap-4.6.0.js",
+                    il y a une fonction où il export le jquery et popper -->
+            <button class="navbar-toggler droite" type="button" data-toggle="collapse"
+                data-target="#navbarsExample06" aria-controls="navbarsExample06" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <!-- Pour la classe " navbar-toggler-icon " le bg-color: black
+                    couvre  seulement l'arriere-plan du burger ET NON les trois traits
+                    DE PLUS, la classe " navbar-toggler-icon " est une IMAGE !!
+                    DONC, IMPOSSIBLE DE CHANGER la couleur des traits -->
+                <!--<span class="navbar-toggler-icon"></span> -->
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- DONC il faut créer SOI-MEME une fonction avec effet slide down
+                ET show / hide avec l'event "click" -->
+            <div class="collapse navbar-collapse" id="navbarsExample06">
+                <ul class="nav navbar-nav droite">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" aria-label="Direction la page Accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html" aria-label="Direction la page panier">
+                            panier
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="cart-btn col-1">
+            <i class="fas fa-cart-arrow-down"></i>
+        </div>
+
+    </header>
+    <!-- bloc-0 END -->
+
+    <main role="main" aria-label="main content">
+        <header class="wood-camera">
+            <h1 class="text-center">Page de confirmation de la commande</h1>
+        </header>
+
+        <!-- cart -->
+        <div class="cart-overlay">
+            <div class="cart">
+                <span class="close-cart">
+                    <i class="fa fa-window-close"></i>
+                </span>
+                <h2>your cart</h2>
+                <div class="cart-content">
+                    <div class="cart-item">
+                        <img src=${itemObjet.image} alt="product" />
+                        <div>
+                            <h4>${itemObjet.title}</h4>
+                            <p>${itemObjet.price}</p>
+                            <span class="remove-item" data-id=${itemObjet.id}>remove</span>
+                        </div>
+                        <div>
+                            <i class="fa fa-chevron-up" data-id=${itemObjet.id}></i>
+                            <p class="item-amount">${itemObjet.amount}</p>
+                            <i class="fa fa-chevron-down" data-id=${itemObjet.id}></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-footer">
+                    <h3>your total : $<span class="cart-total">0</span></h3>
+                    <button class="clear-cart banner-btn">clear cart</button>
+                </div>
+            </div>
+        </div>
+        <!-- end of cart -->
+    </main>
+
+
+    <footer>
+        <div class="row sub-foot">
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <ul>
+                        <li><i class="fas fa-user-tie"></i><span class="pot">à propos d'orinoco</span></li>
+                        <li><i class="far fa-address-card"></i><span class="pot">Nos coorodonnées</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <ul>
+                        <li><i class="far fa-credit-card"></i><span class="pot">Moyens de paiement</span></li>
+                        <li class="parallele-a"><i class="fas fa-truck"></i><span class="pot">Modes de
+                                livraison</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <ul>
+                        <li><i class="fas fa-tags"></i><span class="pot">Foire à questions</span></li>
+                        <li class="parallele-b"><i class="far fa-handshake"></i></span><span
+                                class="pot">Contactez-nous</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row sub-foot">
+            <div class="col-sm-3">
+                <div class="text-center">
+                    <a href="https://www.twitter.com/" class="social" aria-label="twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="text-center">
+                    <a href="https://www.facebook.com/" class="social" aria-label="facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="text-center">
+                    <a href="https://www.instagram.com/" class="social" aria-label="instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="text-center">
+                    <a href="https://www.youtube.com/" class="social" aria-label="twitter">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="sub-foot">
+            <div class="text-center">
+                <small>Copyright &copy; 2021 Orinoco - Tous droits réservés | Site réalisé par votre agence
+                    OC-Student à
+                    Paris</small>
+            </div>
+        </div>
+    </footer>
+
+        <!-- Fichiers Javascript -->
+        <script src="assets/js/Bootdtrap-4.6.0/animateBurgerMenu.js"></script>
+        <script src="assets/js/Bootdtrap-4.6.0/script.js"></script>
+</body>
+
+</html>

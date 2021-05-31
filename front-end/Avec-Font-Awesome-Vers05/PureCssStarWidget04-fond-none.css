@@ -1,0 +1,71 @@
+@import url("../assets/css/fontawesome-free-5.13.0-web/css/all.css");
+
+body {
+    /* Enlever Padding And Margin */
+    padding: 0;
+    margin: 0;
+    background: #f2f22f;
+    text-align: center;
+}
+
+.rating {
+    /* Centrer l'element au centre de la page */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateY(180deg);
+    /* FIN DE Centrer l'element au centre de la page */
+    display: flex;
+}
+
+.rating input {
+    display: none; 
+}
+
+.rating label {
+    display: block;
+    width: 50px;
+    background-color: #eee;
+    cursor: pointer;
+}
+.rating label::before {
+    content: '\f005'; /* icone: Etoile */
+    /* SANS le font-weight: 900, 
+        soit uniquement le font-family: 'Font Awesome 5 Free';
+        l'etoile N'A PAS de fond noir,
+        le color s'affiche SEULEMENT autour du motif étoile */
+    font-family: 'Font Awesome 5 Free';
+    /* en ajoutant font-weight: 900,
+        en plus de font-family: 'Font Awesome 5 Free';
+        l'etoile a le fond noir */
+    font-weight: 400;
+    position: relative;
+    display: block;
+    font-size: 50px;
+    color: #101010;
+}
+.rating label::after {
+    content: '\f005'; /* icone: Etoile */
+    /* SANS le font-weight: 900, 
+        soit uniquement le font-family: 'Font Awesome 5 Free';
+        l'etoile N'A PAS de fond noir,
+        le color s'affiche SEULEMENT autour du motif étoile */
+    font-family: 'Font Awesome 5 Free';
+    /* en ajoutant font-weight: 900,
+        en plus de font-family: 'Font Awesome 5 Free';
+        l'etoile a le fond noir */
+    font-weight: 400;
+    position: absolute;
+    display: block;
+    font-size: 50px;
+    color: #1f9cff;
+    top: 0;
+    opacity: 0;
+    transition: 0.5s;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.rating label:hover::after,
+.rating label:hover ~ label::after,
+.rating input:checked ~ label::after {
+    opacity: 1;
+}

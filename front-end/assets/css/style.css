@@ -1,0 +1,507 @@
+@import url("./fontawesome-free-5.13.0-web/css/all.css");
+
+:root {
+    --orinoco-bg-color: #F3E9F1;
+    --primaryColor: #f09d51;
+    --mainWhite: #fff;
+    --mainBlack: #222;
+    --mainGrey: #ececec;
+    --mainSpacing: 0.1rem;
+    --mainTransition: all 0.3s linear;
+}
+
+body {
+    background-color: var(--orinoco-bg-color);
+}
+
+.orinoco-bg-color {
+    background-color: var(--orinoco-bg-color);
+}
+
+.flex {
+    display: flex;
+}
+
+a {
+    cursor: pointer;
+}
+
+.navbar-toggler .icon-bar {
+    display: block;
+    background-color: black;
+    width: 26px;
+    height: 3px;
+}
+
+.navbar-toggler .icon-bar::before,
+.navbar-toggler .icon-bar::after {
+    content: "";
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 26px;
+    height: 3px;
+    background-color: black;
+}
+
+.navbar-toggler .icon-bar::before {
+    transform: translateY(-8px);
+    transition: transform 0.5s;
+}
+
+.navbar-toggler .icon-bar::after {
+    transform: translateY(6px);
+    transition: transform 0.5s;
+}
+
+.navbar-nav>li>a {
+    color: black !important;
+}
+
+/* Background pour le titre h1 */
+.wood-camera {
+    width: 100%;
+    height: 400px;
+    background-image: url("../img/guide-appareil-photo-voyage.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.product-title {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.white {
+    color: #fff;
+}
+
+/*
+ les classes "navbar-toggler"
+  ET "navbar-toggler-icon" APPARAISENT SEULEMENT AVEC
+  la classe parente située dans la balise "nav", la classe "navbar-dark"
+  Avec la classe "navbar-dark", l'icone burger apparait en blanc
+  et les liens "accueil et panier" de meme.
+  Avec l'ajout de la classe "bg-dark", l'icone burger et les liens PLUS
+  le fond deviennent NOIRS 
+*/
+
+.droite {
+    margin-left: auto;
+}
+
+.cart-btn {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    transform: translateY(24px);
+    /* background-color: coral; */
+    cursor: pointer;
+
+}
+
+.cart-btn i {
+    /* float: right */
+    font-size: 25px;
+}
+
+@media (max-width: 1200px) {
+    .cart-btn {
+        transform: translateY(20px);
+        /* background-color: magenta; */
+    }
+}
+
+/* Footer  */
+li {
+    list-style: none;
+}
+
+.pot {
+    margin-left: 20px;
+}
+
+.parallele-a {
+    margin-left: -18px;
+}
+
+.parallele-b {
+    margin-left: -12px;
+}
+
+
+/* --------------- section class "all-products" ---------------- */
+.all-products,
+.product {
+    margin: auto;
+}
+
+.card {
+    flex-direction: row;
+    background-color: var(--orinoco-bg-color);
+    border: none;
+    border-bottom: 3px solid #000;
+    margin-top: 1.5rem;
+}
+
+.img-product {
+    width: 30%;
+    height: 100%;
+}
+
+.img-product-solo {
+    width: 40%;
+    height: 100%;
+}
+
+.img-product .img-content,
+.img-product-solo .img-content {
+    width: 100%;
+    height: 100%;
+    margin-top: 1.5rem;
+    transition: var(--mainTransition);
+    opacity: 0.5;
+}
+
+.img-product .img-content:hover, 
+.img-product-solo .img-content:hover {
+    opacity: 1;
+}
+
+.img-product .img-content a img,
+.img-product-solo .img-content .card-img {
+    width: 100%;
+    height: 100%;
+}
+
+.img-product-solo .img-content .card-img {
+    width: 300px;
+    height: 300px;
+}
+
+.img-zoom {
+    margin-top: 2rem;
+}
+
+.img-zoom .fa-search-plus {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.description-product {
+    width: 70%;
+}
+
+.description-product-solo {
+    width: 60%;
+}
+
+.description-product .card-body,
+.description-product-solo .card-body {
+    margin-left: 5%;
+}
+
+/* Pour utiliser l'unicode "\f005" de Font Awesome version 05, 
+    DE l'internaute de alsaCreations :
+    << 
+    Bonjour,
+    Vous devez mettre la font-family de la police voulue 
+    quand vous ajoutez le code unicode dans le css.
+    Quand vous utilisez la class de font-awesome, 
+    cela fonctionne 
+    car il a prévu directement le font--family.
+
+    Donc dans votre exemple qui ne fonctionne actuellement pas, 
+    vous devriez mettre quelque chose comme :
+
+    .text-testimonial p:before{
+    content: '\f10d';
+    font-family: "font-awesome", sans-serif;
+    }
+>>
+*/
+
+.description-product .five-star-avis .letter-space,
+.description-product .rating .letter-space {
+    display: inline-block;
+    width: .2em;
+}
+
+.description-product .five-star-avis .icon-star::before {
+    content: "\f005";
+    font-family: 'Font Awesome 5 Free';
+    /* icone etoile - ajouter " \ " avant l'unicode f005 */
+}
+
+.description-product .five-star-avis .icon-star {
+    color: #e7721b;
+}
+
+/* *************************************************************** */
+/* section class card - rating-star-animation-hover */
+/* FROM the video youtube :
+        How-To-Create-Simple-Star-Widget-Rating_
+    Date : 
+        09-janv-2018
+    FROM the channel youtube :
+        Online Tutorials
+*/
+
+.rating {
+    /* Centrer l'element au centre de la page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* FIN DE Centrer l'element au centre de la page */
+    transform: rotateY(180deg); 
+    /* Inversion position etoiles 
+        pour qu'au survol, le color va de gauche vers la droite */
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    display: block;
+    width: 15px;
+    background-color: var(--orinoco-bg-color);
+    cursor: pointer;
+}
+
+.rating label::before {
+    content: '\f005'; /* icone: Etoile */
+    /* SANS le font-weight: 900, 
+        soit uniquement le font-family: 'Font Awesome 5 Free';
+        soit avec le font-weight : 400
+        en plus de font-family: 'Font Awesome 5 Free';
+        l'etoile N'A PAS de fond noir,
+        le color s'affiche SEULEMENT autour du motif étoile */
+    font-family: 'Font Awesome 5 Free';
+    /* en ajoutant font-weight: 900,
+        en plus de font-family: 'Font Awesome 5 Free';
+        l'etoile a le fond noir */
+    font-weight: 400;
+    position: relative;
+    display: block;
+    font-size: 15px;
+    color: #101010;
+}
+
+.rating label::after {
+    content: '\f005';
+    /* icone: Etoile */
+    /* SANS le font-weight: 900, 
+        soit uniquement le font-family: 'Font Awesome 5 Free';
+        l'etoile N'A PAS de fond noir,
+        le color s'affiche SEULEMENT autour du motif étoile */
+    font-family: 'Font Awesome 5 Free';
+    /* en ajoutant font-weight: 900,
+        en plus de font-family: 'Font Awesome 5 Free';
+        l'etoile a le fond rouge-orange */
+    font-weight: 900;
+    position: absolute;
+    display: block;
+    font-size: 15px;
+    /*color: #1f9cff; */
+    color: #e7721b;
+    top: 0;
+    opacity: 0;
+    transition: 0.5s;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.rating label:hover::after,
+.rating label:hover ~ label::after,
+.rating input:checked ~ label::after {
+    opacity: 1;
+}
+
+/* FIN DE section class card - rating-star-animation-hover */
+/* *************************************************************** */
+.btn {
+    margin-bottom: 1rem;
+}
+
+.btn-block {
+    width: 60%;
+}
+
+.btn-cart-all {
+    margin-top: 2rem;
+}
+
+.btn-cart {
+    margin-left: 2rem;
+}
+
+.btn-block a,
+.btn-primary a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-block i,
+.btn-primary i {
+    margin-left: 0.5rem;
+}
+
+/* --------------- END OF section class "all-products" ---------------- */
+
+/* footer */
+footer .sub-foot {
+    margin-top: 1.5rem;
+}
+
+.social>i {
+    font-size: 25px;
+    color: black;
+}
+
+
+/* --------------- Cart from right ---------------- */
+
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transition: var(--mainTransition);
+    background: rgb(240, 157, 81, 0.5);
+    z-index: 2;
+    visibility: hidden;
+}
+
+.cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    z-index: 3;
+    background: rgb(231, 226, 221);
+    padding: 1.5rem;
+    transition: var(--mainTransition);
+    transform: translateX(100%);
+}
+
+.showCart {
+    transform: translateX(0);
+}
+
+.transparentBcg {
+    visibility: visible;
+}
+
+@media screen and (min-width: 768px) {
+    .cart {
+        width: 30vw;
+        min-width: 450px;
+    }
+}
+
+.close-cart {
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+.cart h2 {
+    text-transform: capitalize;
+    text-align: center;
+    letter-spacing: var(--mainSpacing);
+    margin-bottom: 2rem;
+}
+
+.cart-footer {
+	letter-spacing: var(--mainSpacing);
+	text-align: center;
+}
+
+
+/*---------- Cart Item -------------------- */
+.cart-item {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr auto;
+    grid-column-gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.cart-item img {
+    width: 75px;
+    height: 75px;
+}
+
+.cart-item h4 {
+    font-size: 0.85rem;
+    text-transform: capitalize;
+    letter-spacing: var(--mainSpacing);
+}
+
+.cart-item h5 {
+    margin: 0.5rem 0;
+    letter-spacing: var(--mainSpacing);
+}
+
+.item-amount {
+    text-align: center;
+}
+
+.remove-item {
+    color: grey;
+    cursor: pointer;
+}
+
+.fa-chevron-up,
+.fa-chevron-down {
+    color: var(--primaryColor);
+    cursor: pointer;
+}
+
+/*---------- End of Cart Item -------------------- */
+
+.table-cart {
+    border: 3px solid black;
+}
+
+.ok {
+    display: flex;
+}
+
+.blanc {
+    background-color: gold;
+}
+
+.table-cart-total {
+    float: right;
+}
+
+.table-cart thead {
+    border-bottom: 3px solid red;
+}
+
+.table-cart tbody {
+    border-bottom: 3px solid gold;
+}
+.table-cart tbody:last-child {
+    border-bottom: none;
+}
+
+.table-cart thead th {
+    border-right: 3px solid red;
+}
+.table-cart thead th:last-child {
+    border-right: none;
+}
+
+.table-cart tbody td {
+    border-right: 3px solid green;
+}
+.table-cart tbody td:last-child {
+    border-right: none;
+}
